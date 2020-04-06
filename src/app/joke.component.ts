@@ -66,7 +66,6 @@ export class JokeComponent implements OnChanges,
   ngOnDestroy(){
     console.log('ngOnDestroy');
   }
-
 }
 
   

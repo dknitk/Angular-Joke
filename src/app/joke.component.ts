@@ -1,5 +1,5 @@
 
-import {Component , Input} from '@angular/core';
+import {Component , Input, SimpleChanges} from '@angular/core';
 import { Joke } from './Joke';
 @Component({
   selector: 'joke',
@@ -27,8 +27,15 @@ export class JokeComponent {
     console.log('new - data is ${this.data}');
   }
 
-  ngOnChanges(){
+  ngOnChanges(changes: SimpleChanges){
     console.log('ngOnChanges - data is ${this.data}');
+    for(let key in changes){
+      console.log(`${key} changes
+      current: ${changes[key].currentValue}
+      previous: ${changes[key].previousValue}
+      `);
+    }
+
   }
   ngOnInit(){
     console.log('ngOnInit - data is ${this.data}');

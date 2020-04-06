@@ -20,6 +20,38 @@ import { Joke } from './Joke';
 export class JokeComponent {
 
   @Input('joke') data: Joke;
+
+  // These Life Cycle method is to understand the Life Cycle of angular
+  // Optional - Not Required
+  constructor(){
+    console.log('new - data is ${this.data}');
+  }
+
+  ngOnChanges(){
+    console.log('ngOnChanges - data is ${this.data}');
+  }
+  ngOnInit(){
+    console.log('ngOnInit - data is ${this.data}');
+  }
+  ngDoCheck(){
+    console.log('ngDoCheck - data is ${this.data}')
+  }
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit');
+  }
+  ngAfterContentChecked(){
+    console.log('ngAfterContentChecked');
+  }
+  ngAfterViewInit(){
+    console.log('ngAfterViewInit');
+  }
+  ngAfterViewChecked(){
+    console.log('ngAfterViewChecked');
+  }
+  ngOnDestroy(){
+    console.log('ngOnDestroy');
+  }
+
 }
 
   

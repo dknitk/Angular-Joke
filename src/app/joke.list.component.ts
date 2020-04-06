@@ -9,6 +9,14 @@ import { Joke } from './Joke';
 <span class="setup">{{ j.setup }}?</span>
 <h1 class="punchline">{{ j.punchline }}</h1>
 </joke>
+<button type="button" 
+      class="btn btn-success"
+      (click)="addJoke()" > Add Joke
+</button>
+<button type="button"
+        class="btn btn-success"
+        (click) = "deleteJoke()">Clear jokes
+</button>
     `
 })
 
@@ -22,9 +30,12 @@ export class JokeListComponent {
       new Joke("What kind of cheese do you use to disguise a small horse", "Mask-apony (Mascarpone)"),
       new Joke("A kid threw a lump of cheddar at me", "I thought ‘That’s not very mature’"),
     ];
-
   }
+  // Add method to test dummy jokes
   addJoke(joke) {
-    this.jokes.unshift(joke);
+    this.jokes.unshift(new Joke("What did the cheese say when it looked in themirror", "Hello-me (Halloumi)"));
+  }
+  deleteJoke(){
+    this.jokes = []
   }
 }

@@ -1,5 +1,5 @@
 
-import {Component , Input, SimpleChanges} from '@angular/core';
+import {Component , Input, SimpleChanges, OnChanges, OnInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, DoCheck} from '@angular/core';
 import { Joke } from './Joke';
 @Component({
   selector: 'joke',
@@ -16,13 +16,21 @@ import { Joke } from './Joke';
   </div>
   `
 })
-
-export class JokeComponent {
+// This code will work without imoplementing interfaces
+export class JokeComponent implements OnChanges,
+                                      OnInit,
+                                      DoCheck,
+                                      AfterContentChecked,
+                                      AfterViewInit,
+                                      AfterViewChecked,
+                                      OnDestroy
+                                    
+{
 
   @Input('joke') data: Joke;
 
   // These Life Cycle method is to understand the Life Cycle of angular
-  // Optional - Not Required
+  // Optional - Not Required. Hook Points
   constructor(){
     console.log('new - data is ${this.data}');
   }
